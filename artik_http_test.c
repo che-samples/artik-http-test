@@ -16,16 +16,13 @@ artik_error test_http_get(void)
     headers.fields = fields;
     headers.num_fields = sizeof(fields) / sizeof(fields[0]);
     fprintf(stdout, "TEST: %s starting\n", __func__);
-    ret =
-        http->get("https://httpbin.org/get", &headers, &response, NULL,
-              false);
+    ret = http->get("https://httpbin.org/get", &headers, &response, NULL, false);
     if (ret != S_OK) {
         fprintf(stdout, "TEST: %s failed (err=%d)\n", __func__, ret);
         return ret;
     }
     if (response) {
-        fprintf(stdout, "TEST: %s response data: %s\n", __func__,
-            response);
+        fprintf(stdout, "TEST: %s response data: %s\n", __func__, response);
         free(response);
     }
     fprintf(stdout, "TEST: %s succeeded\n", __func__);
@@ -54,11 +51,9 @@ artik_error test_http_post(void)
         return ret;
     }
     if (response) {
-        fprintf(stdout, "TEST: %s response data: %s\n", __func__,
-            response);
+        fprintf(stdout, "TEST: %s response data: %s\n", __func__, response);
         free(response);
     }
-    
     fprintf(stdout, "TEST: %s succeeded\n", __func__);
     artik_release_api_module(http);
     return ret;
